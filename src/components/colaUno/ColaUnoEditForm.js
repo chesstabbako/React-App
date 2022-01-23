@@ -33,8 +33,6 @@ const ColaUnoEditForm = ({ user, userEdited, loading, error, ...rest}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  debugger;
-
   const formik = useFormik({
     initialValues: {
       name: user.name,
@@ -45,7 +43,6 @@ const ColaUnoEditForm = ({ user, userEdited, loading, error, ...rest}) => {
     onSubmit: async (values, { setSubmitting }) => {
       const res= await dispatch(editUserAction(user.id, values)); 
      if(res && res.status === 200){
-       debugger;
        setSubmitting(false);
      }else if(res === undefined){
       setSubmitting(false);

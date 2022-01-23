@@ -27,9 +27,7 @@ const allUserAction = () => async (dispatch, getState) => {
 
   try {
     dispatch({ type: USER_LIST_REQUEST });
-    debugger;
     const response = await Axios.get(`http://127.0.0.1:8000/api/usuarios`, { headers });
-    debugger;
     dispatch({ type: USER_LIST_SUCCESS, payload: response.data });
   } catch (error) {
     let message =
@@ -88,7 +86,6 @@ const editUserAction = (userId, user) => async (dispatch, getState) => {
       'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
       'Content-Type': 'application/json',
     };
-    debugger;
     const response = await Axios.put(
       `http://127.0.0.1:8000/api/usuarios/${userId}`,
       user,
@@ -96,7 +93,6 @@ const editUserAction = (userId, user) => async (dispatch, getState) => {
         headers,
       }
     );
-    debugger;
     if (response.status === 200) {
       dispatch({ type: USER_EDIT_SUCCESS, payload: response.data });
       dispatch(showSuccess("Usuario editado satisfactoriamente"));
@@ -128,15 +124,12 @@ const deleteUserAction = (userId) => async (dispatch, getState) => {
       'Content-Type': 'application/json',
     };
 
-    debugger;
-
     const response = await Axios.delete(
       `http://127.0.0.1:8000/api/usuarios/${userId}`,
       {
         headers,
       }
     );
-    debugger;
     if (response.status === 200) {
       dispatch({ type: USER_DELETE_SUCCESS, payload: userId });
       dispatch(showSuccess("Usuario eliminado satisfactoriamente"));

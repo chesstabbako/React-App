@@ -33,8 +33,6 @@ const ColaDosEditForm = ({ user, userEdited, loading, error, ...rest}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  debugger;
-
   const formik = useFormik({
     initialValues: {
       name: user.name,
