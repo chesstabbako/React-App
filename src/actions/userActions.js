@@ -1,5 +1,6 @@
 import Axios from "axios";
 import { showError, showSuccess } from "./notificationActions";
+const port= 'http://127.0.0.1:8000/api/usuarios';
 
 const {
   USER_LIST_REQUEST,
@@ -27,7 +28,7 @@ const allUserAction = () => async (dispatch, getState) => {
 
   try {
     dispatch({ type: USER_LIST_REQUEST });
-    const response = await Axios.get(`http://127.0.0.1:8000/api/usuarios`, { headers });
+    const response = await Axios.get(`${port}`, { headers });
     dispatch({ type: USER_LIST_SUCCESS, payload: response.data });
   } catch (error) {
     let message =
@@ -51,7 +52,7 @@ const createUserAction = (user) => async (dispatch, getState) => {
       'Content-Type': 'application/json',
     };
 
-    const response = await Axios.post(`http://127.0.0.1:8000/api/usuarios`, user, {
+    const response = await Axios.post(`${port}`, user, {
       headers,
     });
     if (response.status === 201) {
@@ -87,7 +88,7 @@ const editUserAction = (userId, user) => async (dispatch, getState) => {
       'Content-Type': 'application/json',
     };
     const response = await Axios.put(
-      `http://127.0.0.1:8000/api/usuarios/${userId}`,
+      `${port}/${userId}`,
       user,
       {
         headers,
@@ -125,7 +126,7 @@ const deleteUserAction = (userId) => async (dispatch, getState) => {
     };
 
     const response = await Axios.delete(
-      `http://127.0.0.1:8000/api/usuarios/${userId}`,
+      `${port}/${userId}`,
       {
         headers,
       }
