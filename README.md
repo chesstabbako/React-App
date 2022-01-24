@@ -7,5 +7,5 @@
 con Laravel llamado API-Laravel(Si decide descargarlo asegúrese de que corra en ese puerto o sino tendrá que hacer las respectivas configuraciones).
 
 Funciones: 
-1.- Crear usuarios que por defecto tendrán el valor "Por Atender". Solo podrá eliminarse una vez se edite a "Atendido".
+1.- Crear usuarios que por defecto tendrán el valor "Por Atender". Solo podrá eliminarse una vez se edite a "Atendido". Se trabaja con solo dos colas y dos atenciones.
 2.- Al momento de crearlo podrá elegir a qué Cola asígnarlo. La cola uno tiene prioridad de atención.
